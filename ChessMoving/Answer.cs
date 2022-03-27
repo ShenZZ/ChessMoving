@@ -59,14 +59,11 @@ namespace ChessMoving
             this.Current = start;
         }
 
-        public string Name => this.GetType().Name;
+        public virtual string Name => this.GetType().Name;
 
         public Position Current { get; protected set; }
 
-        public virtual IEnumerable<Position> ValidMovesFor(IEnumerable<Position> occupied)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract IEnumerable<Position> ValidMovesFor(IEnumerable<Position> occupied);
 
         public virtual void Move(Position target)
         {
